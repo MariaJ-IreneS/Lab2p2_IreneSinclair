@@ -19,7 +19,7 @@ public class Usuario {
     }
 
     public String getTipoUsuario() {
-        return tipo.isEmpty() ? "Sin Tipo" : tipo.get(0);
+        return tipo.size() == 0 ? "Sin Tipo" : tipo.get(0);
     }
-
+    
 }

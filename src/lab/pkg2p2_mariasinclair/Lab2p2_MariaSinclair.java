@@ -8,24 +8,32 @@ public class Lab2p2_MariaSinclair {
 
     public static void main(String[] args) {
 
-        Usuario profesor = new Usuario("profesor@correo.com", "contrasena1", "Profesor");
-        Usuario estudiante = new Usuario("estudiante@correo.com", "contrasena2", "Estudiante");
-        Usuario bibliotecario = new Usuario("bibliotecario@correo.com", "contrasena3", "Bibliotecario");
+        Usuario profesor = new Usuario("profesor@correo.com", "claveprofesor", "Profesor");
+        Usuario estudiante = new Usuario("estudiante@correo.com", "claveestudiante", "Estudiante");
+        Usuario bibliotecario = new Usuario("bibliotecario@correo.com", "clavebibliotecario", "Bibliotecario");
 
-        // Ejemplo de inicio de sesión como profesor
-        Scanner scanner = new Scanner(System.in);
+        boolean inicioSesionExitoso = false;
 
-        System.out.print("Ingrese su correo: ");
-        String correoIngresado = scanner.nextLine();
+        do {
+            System.out.print("Ingrese su correo: ");
+            String correoIngresado = leer.nextLine();
 
-        System.out.print("Ingrese su contraseña: ");
-        String contraseñaIngresada = scanner.nextLine();
+            System.out.print("Ingrese su clave: ");
+            String contraseñaIngresada = leer.nextLine();
 
-        if (profesor.verificarCredenciales(correoIngresado, contraseñaIngresada)) {
-            System.out.println("Inicio de sesion exitoso como " + profesor.getTipoUsuario() + ".");
-        } else {
-            System.out.println("Correo o contraseña incorrectos.");
-        }
+            if (profesor.verificarCredenciales(correoIngresado, contraseñaIngresada)) {
+                System.out.println("Inicio de sesion exitoso como " + profesor.getTipoUsuario() + ".");
+                inicioSesionExitoso = true;
+            } else if (estudiante.verificarCredenciales(correoIngresado, contraseñaIngresada)) {
+                System.out.println("Inicio de sesión exitoso como " + estudiante.getTipoUsuario() + ".");
+                inicioSesionExitoso = true;
+            } else if (bibliotecario.verificarCredenciales(correoIngresado, contraseñaIngresada)) {
+                System.out.println("Inicio de sesion exitoso, como: " + bibliotecario.getTipoUsuario() + ".");
+                inicioSesionExitoso = true;
+            } else {
+                System.out.println("Correo o clave incorrectos. Intente nuevamente.");
+            }
+        } while (!inicioSesionExitoso);
 
         int caso = 0;
         boolean repetir = true;
