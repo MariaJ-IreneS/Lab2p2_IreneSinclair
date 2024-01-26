@@ -6,12 +6,12 @@ public class Conferencias {
 
     private String titulo4;
     private String conferencista;
-    private Date dia;
+    private String dia;
     private int tiempo;
     private String acceso;
 
     // Constructor
-    public Conferencias(String titulo4, String conferencista, Date dia, int tiempo, String acceso) {
+    public Conferencias(String titulo4, String conferencista, String dia, int tiempo, String acceso) {
         this.titulo4 = titulo4;
         this.conferencista = conferencista;
         this.dia = dia;
@@ -28,7 +28,7 @@ public class Conferencias {
         return conferencista;
     }
 
-    public Date getDia() {
+    public String getDia() {
         return dia;
     }
 
@@ -49,7 +49,7 @@ public class Conferencias {
         this.conferencista = conferencista;
     }
 
-    public void setDia(Date dia) {
+    public void setDia(String dia) {
         this.dia = dia;
     }
 

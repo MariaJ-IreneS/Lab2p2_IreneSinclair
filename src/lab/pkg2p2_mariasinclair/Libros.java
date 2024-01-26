@@ -7,10 +7,10 @@ class Libros {
     private String titulo;
     private String autor;
     private String genero;
-    private Date publicacion;
+    private String publicacion;
     private String disponibilidad;
 
-    public Libros(String titulo, String autor, String genero, Date publicacion, String disponibilidad) {
+    public Libros(String titulo, String autor, String genero, String publicacion, String disponibilidad) {
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
@@ -31,7 +31,7 @@ class Libros {
         return genero;
     }
 
-    public Date getPublicacion() {
+    public String getPublicacion() {
         return publicacion;
     }
 
@@ -52,7 +52,7 @@ class Libros {
         this.genero = genero;
     }
 
-    public void setPublicacion(Date publicacion) {
+    public void setPublicacion(String publicacion) {
         this.publicacion = publicacion;
     }
 
