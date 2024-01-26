@@ -2,7 +2,7 @@ package lab.pkg2p2_mariasinclair;
 
 import java.util.Date;
 
-public class Libros {
+class Libros {
 
     private String titulo;
     private String autor;
@@ -17,6 +17,56 @@ public class Libros {
         this.publicacion = publicacion;
         this.disponibilidad = disponibilidad;
     }
-    
 
+    // Getters
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public Date getPublicacion() {
+        return publicacion;
+    }
+
+    public String getDisponibilidad() {
+        return disponibilidad;
+    }
+
+    // Setters
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public void setPublicacion(Date publicacion) {
+        this.publicacion = publicacion;
+    }
+
+    public void setDisponibilidad(String disponibilidad) {
+        this.disponibilidad = disponibilidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro: \n"
+                + "Titulo: \n" + titulo
+                + "Autor: \n" + autor
+                + "Genero: \n" + genero
+                + "Fecha de Publicacion: \n" + publicacion
+                + "Disponibilidad: " + disponibilidad;
+    }
 }
