@@ -21,13 +21,13 @@ public class Lab2p2_MariaSinclair {
             System.out.print("Ingrese su clave: ");
             String contraseñaIngresada = leer.nextLine();
 
-            if (profesor.verificarCredenciales(correoIngresado, contraseñaIngresada)) {
+            if (profesor.verificarUsuario(correoIngresado, contraseñaIngresada)) {
                 System.out.println("Inicio de sesion exitoso como " + profesor.getTipoUsuario() + ".");
                 inicioSesionExitoso = true;
-            } else if (estudiante.verificarCredenciales(correoIngresado, contraseñaIngresada)) {
+            } else if (estudiante.verificarUsuario(correoIngresado, contraseñaIngresada)) {
                 System.out.println("Inicio de sesión exitoso como " + estudiante.getTipoUsuario() + ".");
                 inicioSesionExitoso = true;
-            } else if (bibliotecario.verificarCredenciales(correoIngresado, contraseñaIngresada)) {
+            } else if (bibliotecario.verificarUsuario(correoIngresado, contraseñaIngresada)) {
                 System.out.println("Inicio de sesion exitoso, como: " + bibliotecario.getTipoUsuario() + ".");
                 inicioSesionExitoso = true;
             } else {
