@@ -64,10 +64,10 @@ public class Conferencias {
     @Override
     public String toString() {
         return "Conferencias Proximas: \n"
-                + "Programa: \n" + titulo4
-                + "Invitado de conferencia: \n" + conferencista
-                + "Fecha de conferencia: \n" + dia
-                + "Duracion:\n" + tiempo
-                + "Enlace de acceso: " + acceso;
+                + "\nPrograma: " + titulo4
+                + "\nInvitado de conferencia: " + conferencista
+                + "\nFecha de conferencia: " + dia
+                + "\n Duracion:" + tiempo
+                + "\nEnlace de acceso: " + acceso;
     }
 }

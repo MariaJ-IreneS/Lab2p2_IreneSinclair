@@ -64,10 +64,10 @@ public class Articulos {
     @Override
     public String toString() {
         return "Articulo: \n"
-                + "Titulo del libro: \n " + titulo2
-                + "Creador: \n" + creador
-                + "Tema: \n" + tema
-                + "Fecha: \n" + fecha
-                + "Acceso en Linea:'" + acceso;
+                + "\nTitulo del libro: " + titulo2
+                + "\nCreador: " + creador
+                + "\nTema: " + tema
+                + "\nFecha: " + fecha
+                + "\nAcceso en Linea:'" + acceso;
     }
 }

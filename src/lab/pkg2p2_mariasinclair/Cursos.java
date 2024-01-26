@@ -49,14 +49,14 @@ public class Cursos {
         this.plataforma = plataforma;
     }
 
-    // ToString para representación legible (si es necesario)
+    // ToString para representación legible.
     @Override
     public String toString() {
         return "Conferencias: \n"
-                + "Titulo: \n" + titulo3
-                + "Instructor: \n" + instructor
-                + "Duracion de curso: \n: " + duracion
-                + "Plataforma: " + plataforma;
+                + "\nTitulo: " + titulo3
+                + "\nInstructor: " + instructor
+                + "\nDuracion de curso: " + duracion
+                + "\nPlataforma: " + plataforma;
     }
 
 }
