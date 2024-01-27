@@ -78,6 +78,7 @@ public class Lab2p2_MariaSinclair {
                     EliminarRecurso();
                     break;
                 case 4:
+                    ModificarRecurso();
                     break;
                 default:
                     System.out.println("Finalizo su programa.");
@@ -92,7 +93,7 @@ public class Lab2p2_MariaSinclair {
         System.out.println("------ Articulos ------");
         for (int i = 0; i < listaDeArticulos.size(); i++) {
             Articulos articulo = listaDeArticulos.get(i);
-            System.out.println(i + 1 + ")." + articulo.toString());
+            System.out.println(i + 1 + "). " + articulo.toString());
             System.out.println("-----------------------");
         }
 
@@ -100,7 +101,7 @@ public class Lab2p2_MariaSinclair {
         System.out.println("-------- Libros --------");
         for (int i = 0; i < listaDeLibros.size(); i++) {
             Libros libro = listaDeLibros.get(i);
-            System.out.println(i + 1 + ")." + libro.toString());
+            System.out.println(i + 1 + "). " + libro.toString());
             System.out.println("-----------------------\n");
         }
 
@@ -108,7 +109,7 @@ public class Lab2p2_MariaSinclair {
         System.out.println("-------- Cursos --------");
         for (int i = 0; i < listaDeCursos.size(); i++) {
             Cursos curso = listaDeCursos.get(i);
-            System.out.println(i + 1 + ")." + curso.toString());
+            System.out.println(i + 1 + "). " + curso.toString());
             System.out.println("-----------------------\n");
         }
 
@@ -116,18 +117,20 @@ public class Lab2p2_MariaSinclair {
         System.out.println("----- Conferencias -----");
         for (int i = 0; i < listaDeConferencias.size(); i++) {
             Conferencias conferencia = listaDeConferencias.get(i);
-            System.out.println(i + 1 + ")." + conferencia.toString());
+            System.out.println(i + 1 + "). " + conferencia.toString());
             System.out.println("-----------------------\n");
         }
     }
 
     public static void CrearRecurso() {
+        
         System.out.println("------ Crear Recurso ------");
         System.out.println("Seleccione el tipo de recurso:");
         System.out.println("1. Articulo");
         System.out.println("2. Libro");
         System.out.println("3. Curso");
         System.out.println("4. Conferencia");
+        System.out.print("Elige una opcion:");
 
         int opcionTipoRecurso = leer.nextInt();
         leer.nextLine();
@@ -213,6 +216,7 @@ public class Lab2p2_MariaSinclair {
         System.out.println("2.Libro");
         System.out.println("3.Curso");
         System.out.println("4.Conferencia");
+        System.out.print("Elige una opcion: ");
 
         int opcionTipoRecurso = leer.nextInt();
         leer.nextLine();
@@ -224,7 +228,7 @@ public class Lab2p2_MariaSinclair {
                 int indiceArticulo = leer.nextInt();
                 if (indiceArticulo >= 1 && indiceArticulo <= listaDeArticulos.size()) {
                     listaDeArticulos.remove(indiceArticulo - 1);
-                    System.out.println("Artículo eliminado correctamente.");
+                    System.out.println("Articulo eliminado correctamente.");
                 } else {
                     System.out.println("Numero de articulo no valido.");
                 }
@@ -276,7 +280,7 @@ public class Lab2p2_MariaSinclair {
         System.out.println("------ Articulos ------");
         for (int i = 0; i < listaDeArticulos.size(); i++) {
             Articulos articulo = listaDeArticulos.get(i);
-            System.out.println(i + 1 + ")." + articulo.toString());
+            System.out.println(i + 1 + "). " + articulo.toString());
             System.out.println("-----------------------");
         }
     }
@@ -285,7 +289,7 @@ public class Lab2p2_MariaSinclair {
         System.out.println("-------- Libros --------");
         for (int i = 0; i < listaDeLibros.size(); i++) {
             Libros libro = listaDeLibros.get(i);
-            System.out.println(i + 1 + ")." + libro.toString());
+            System.out.println(i + 1 + "). " + libro.toString());
             System.out.println("-----------------------\n");
         }
     }
@@ -294,7 +298,7 @@ public class Lab2p2_MariaSinclair {
         System.out.println("-------- Cursos --------");
         for (int i = 0; i < listaDeCursos.size(); i++) {
             Cursos curso = listaDeCursos.get(i);
-            System.out.println(i + 1 + ")." + curso.toString());
+            System.out.println(i + 1 + "). " + curso.toString());
             System.out.println("-----------------------\n");
         }
     }
@@ -303,8 +307,164 @@ public class Lab2p2_MariaSinclair {
         System.out.println("----- Conferencias -----");
         for (int i = 0; i < listaDeConferencias.size(); i++) {
             Conferencias conferencia = listaDeConferencias.get(i);
-            System.out.println(i + 1 + ")." + conferencia.toString());
+            System.out.println(i + 1 + "). " + conferencia.toString());
             System.out.println("-----------------------\n");
         }
     }
+
+    public static void ModificarRecurso() {
+        System.out.println("------ Modificar Recurso ------");
+        System.out.println("Ingrese el tipo de recurso a modificar:");
+        System.out.println("1. Articulo");
+        System.out.println("2. Libro");
+        System.out.println("3. Curso");
+        System.out.println("4. Conferencia");
+
+        int opcionTipoRecurso = leer.nextInt();
+        leer.nextLine();
+
+        switch (opcionTipoRecurso) {
+            case 1:
+                ListarArticulos();
+                System.out.println("Ingrese el numero del articulo a modificar:");
+                int indiceArticulo = leer.nextInt();
+                leer.nextLine();
+
+                if (indiceArticulo >= 1 && indiceArticulo <= listaDeArticulos.size()) {
+                    Articulos articuloSeleccionado = listaDeArticulos.get(indiceArticulo - 1);
+
+                    System.out.println("Ingrese el nuevo titulo del articulo:");
+                    String nuevoTitulo = leer.nextLine();
+                    articuloSeleccionado.setTitulo(nuevoTitulo);
+
+                    System.out.println("Ingrese el nuevo autor del articulo:");
+                    String nuevoCreador = leer.nextLine();
+                    articuloSeleccionado.setCreador(nuevoCreador);
+
+                    System.out.println("Ingrese el nuevo tema del articulo:");
+                    String nuevoTema = leer.nextLine();
+                    articuloSeleccionado.setTema(nuevoTema);
+
+                    System.out.println("Ingrese la nueva fecha del articulo:");
+                    String nuevaFecha = leer.nextLine();
+                    articuloSeleccionado.setFecha(nuevaFecha);
+
+                    System.out.println("Ingrese el nuevo acceso en linea del articulo:");
+                    String nuevoAcceso = leer.nextLine();
+                    articuloSeleccionado.setAcceso(nuevoAcceso);
+
+                    System.out.println("Articulo modificado correctamente.");
+                } else {
+                    System.out.println("Numero de articulo no valido.");
+                }
+                break;
+
+            case 2:
+                ListarLibros();
+                System.out.println("Ingrese el numero del libro a modificar:");
+                int indiceLibro = leer.nextInt();
+                leer.nextLine();
+
+                if (indiceLibro >= 1 && indiceLibro <= listaDeLibros.size()) {
+                    Libros libroSeleccionado = listaDeLibros.get(indiceLibro - 1);
+
+                    System.out.println("Ingrese el nuevo titulo del libro:");
+                    String nuevoTituloLibro = leer.nextLine();
+                    libroSeleccionado.setTitulo(nuevoTituloLibro);
+
+                    System.out.println("Ingrese el nuevo autor del libro:");
+                    String nuevoAutorLibro = leer.nextLine();
+                    libroSeleccionado.setAutor(nuevoAutorLibro);
+
+                    System.out.println("Ingrese el nuevo genero del libro:");
+                    String nuevoGeneroLibro = leer.nextLine();
+                    libroSeleccionado.setGenero(nuevoGeneroLibro);
+
+                    System.out.println("Ingrese la nueva fecha de publicacion del libro:");
+                    String nuevaPublicacionLibro = leer.nextLine();
+                    libroSeleccionado.setPublicacion(nuevaPublicacionLibro);
+
+                    System.out.println("Ingrese la nueva disponibilidad del libro:");
+                    String nuevaDisponibilidadLibro = leer.nextLine();
+                    libroSeleccionado.setDisponibilidad(nuevaDisponibilidadLibro);
+
+                    System.out.println("Libro modificado correctamente.");
+                } else {
+                    System.out.println("Numero de libro no valido.");
+                }
+                break;
+
+            case 3:
+                ListarCursos();
+                System.out.println("Ingrese el numero del curso a modificar:");
+                int indiceCurso = leer.nextInt();
+                leer.nextLine();
+
+                if (indiceCurso >= 1 && indiceCurso <= listaDeCursos.size()) {
+                    Cursos cursoSeleccionado = listaDeCursos.get(indiceCurso - 1);
+
+                    System.out.println("Ingrese el nuevo titulo del curso:");
+                    String nuevoTituloCurso = leer.nextLine();
+                    cursoSeleccionado.setTitulo3(nuevoTituloCurso);
+
+                    System.out.println("Ingrese el nuevo instructor del curso:");
+                    String nuevoInstructorCurso = leer.nextLine();
+                    cursoSeleccionado.setInstructor(nuevoInstructorCurso);
+
+                    System.out.println("Ingrese la nueva duracion del curso:");
+                    String nuevaDuracionCurso = leer.nextLine();
+                    cursoSeleccionado.setDuracion(nuevaDuracionCurso);
+
+                    System.out.println("Ingrese la nueva plataforma del curso:");
+                    String nuevaPlataformaCurso = leer.nextLine();
+                    cursoSeleccionado.setPlataforma(nuevaPlataformaCurso);
+
+                    System.out.println("Curso modificado correctamente.");
+                } else {
+                    System.out.println("Numero de curso no valido.");
+                }
+                break;
+
+            case 4:
+                ListarConferencias();
+                System.out.println("Ingrese el numero de la conferencia a modificar:");
+                int indiceConferencia = leer.nextInt();
+                leer.nextLine();
+
+                if (indiceConferencia >= 1 && indiceConferencia <= listaDeConferencias.size()) {
+                    Conferencias conferenciaSeleccionada = listaDeConferencias.get(indiceConferencia - 1);
+
+                    System.out.println("Ingrese el nuevo titulo de la conferencia:");
+                    String nuevoTituloConferencia = leer.nextLine();
+                    conferenciaSeleccionada.setTitulo4(nuevoTituloConferencia);
+
+                    System.out.println("Ingrese el nuevo conferencista de la conferencia:");
+                    String nuevoConferencista = leer.nextLine();
+                    conferenciaSeleccionada.setConferencista(nuevoConferencista);
+
+                    System.out.println("Ingrese la nueva fecha de la conferencia:");
+                    String nuevaFechaConferencia = leer.nextLine();
+                    conferenciaSeleccionada.setDia(nuevaFechaConferencia);
+
+                    System.out.println("Ingrese la nueva duracion de la conferencia en minutos:");
+                    int nuevaDuracionConferencia = leer.nextInt();
+                    leer.nextLine();
+                    conferenciaSeleccionada.setTiempo(nuevaDuracionConferencia);
+
+                    System.out.println("Ingrese el nuevo enlace de acceso de la conferencia:");
+                    String nuevoAccesoConferencia = leer.nextLine();
+                    conferenciaSeleccionada.setAcceso(nuevoAccesoConferencia);
+
+                    System.out.println("Conferencia modificada correctamente.");
+                } else {
+                    System.out.println("Numero de conferencia no valido.");
+                }
+                break;
+
+            default:
+                System.out.println("Opcion no valida.");
+                break;
+        }
+    }
+
 }//Fin de la clase.
