@@ -52,7 +52,7 @@ public class Cursos {
     // ToString para representación legible.
     @Override
     public String toString() {
-        return "Conferencias: \n"
+        return "Cursos: \n"
                 + "\nTitulo: " + titulo3
                 + "\nInstructor: " + instructor
                 + "\nDuracion de curso: " + duracion

@@ -41,51 +41,82 @@ public class Lab2p2_MariaSinclair {
             System.out.print("Ingrese su clave: ");
             String contraseñaIngresada = leer.nextLine();
 
-            if (profesor.verificarUsuario(correoIngresado, contraseñaIngresada)) {
-                System.out.println("Inicio de sesion exitoso como " + profesor.getTipoUsuario() + ".");
+            Usuario usuario = null;
+
+            for (Usuario u : listaDeUsuarios) {
+                if (u.verificarUsuario(correoIngresado, contraseñaIngresada)) {
+                    usuario = u;
+                    break;
+                }
+            }
+
+            if (usuario != null) {
+                System.out.println("Inicio de sesion exitoso como " + usuario.getTipoUsuario() + ".");
                 inicioSesionExitoso = true;
-            } else if (estudiante.verificarUsuario(correoIngresado, contraseñaIngresada)) {
-                System.out.println("Inicio de sesion exitoso como " + estudiante.getTipoUsuario() + ".");
-                inicioSesionExitoso = true;
-            } else if (bibliotecario.verificarUsuario(correoIngresado, contraseñaIngresada)) {
-                System.out.println("Inicio de sesion exitoso, como: " + bibliotecario.getTipoUsuario() + ".");
-                inicioSesionExitoso = true;
+
+                boolean repetir = true;
+
+                while (repetir) {
+                    System.out.println("-------MENU-------");
+                    System.out.println("1. Listar Recursos. ");
+
+                    if (usuario.getTipoUsuario().equals("Estudiante")) {
+                        System.out.println("2. Crear recurso. ");
+                        System.out.println("3. Eliminar Recurso.");
+                        System.out.println("4. Modificar recurso.");
+                    } else if (usuario.getTipoUsuario().equals("Profesor")) {
+                        System.out.println("2. Crear recurso. ");
+                        System.out.println("3. Eliminar Recurso.");
+                        System.out.println("4. Modificar recurso.");
+                    } else {
+                        System.out.println("2. Crear recurso. ");
+                        System.out.println("3. Eliminar Recurso.");
+                        System.out.println("4. Modificar recurso.");
+                    }
+
+                    System.out.println("5. Salir del programa. ");
+                    System.out.print(" Elige una opcion: ");
+                    int caso = leer.nextInt();
+                    leer.nextLine();
+
+                    switch (caso) {
+                        case 1:
+                            ListarTodos();
+                            break;
+                        case 2:
+                            if (usuario.getTipoUsuario().equals("Estudiante")) {
+                                System.out.println("Acceso no permitido a Crear Recurso.");
+                            } else {
+                                CrearRecurso();
+                            }
+                            break;
+                        case 3:
+                            if (usuario.getTipoUsuario().equals("Estudiante") || usuario.getTipoUsuario().equals("Profesor")) {
+                                System.out.println("Acceso no permitido a Eliminar Recurso.");
+                            } else {
+                                EliminarRecurso();
+                            }
+                            break;
+                        case 4:
+                            if (usuario.getTipoUsuario().equals("Estudiante") || usuario.getTipoUsuario().equals("Profesor")) {
+                                System.out.println("Acceso no permitido a Modificar Recurso.");
+                            } else {
+                                ModificarRecurso();
+                            }
+                            break;
+                        case 5:
+                            System.out.println("Finalizo su programa.");
+                            repetir = false;
+                            break;
+                        default:
+                            System.out.println("Opción no válida. Intente nuevamente.");
+                    }
+                }
+
             } else {
                 System.out.println("Correo o clave incorrectos. Intente nuevamente.");
             }
         } while (!inicioSesionExitoso);
-
-        int caso = 0;
-        boolean repetir = true;
-        while (repetir) {
-            System.out.println("-------MENU-------");
-            System.out.println("1. Listar Recursos. ");
-            System.out.println("2. Crear recurso. ");
-            System.out.println("3. Eliminar Recurso.");
-            System.out.println("4. Modificar recurso. ");
-            System.out.println("5. Salir del programa. ");
-            System.out.print(" Elige una opcion: ");
-            caso = leer.nextInt();
-
-            switch (caso) {
-                case 1:
-                    ListarTodos();
-                    break;
-                case 2:
-                    CrearRecurso();
-                    break;
-                case 3:
-                    EliminarRecurso();
-                    break;
-                case 4:
-                    ModificarRecurso();
-                    break;
-                default:
-                    System.out.println("Finalizo su programa.");
-                    repetir = false;
-
-            }//Fin de los casos.
-        }//Fin del repetidor.
     }//Fin del main.
 
     public static void ListarTodos() {
@@ -123,7 +154,7 @@ public class Lab2p2_MariaSinclair {
     }
 
     public static void CrearRecurso() {
-        
+
         System.out.println("------ Crear Recurso ------");
         System.out.println("Seleccione el tipo de recurso:");
         System.out.println("1. Articulo");
