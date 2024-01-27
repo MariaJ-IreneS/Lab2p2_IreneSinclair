@@ -22,10 +22,10 @@ public class Lab2p2_MariaSinclair {
         listaDeUsuarios.add(estudiante);
         listaDeUsuarios.add(bibliotecario);
 
-        Articulos articuloEjemplo = new Articulos("Inteligencia Artificial", "Autor Anonimo", "Tecnologia", "2022-01-26", "Acceso Publico");
-        Libros libroEjemplo = new Libros("Mas alla del sol", "Gabriel Garcia Marquez", "Realismo Magico", "1967", "Disponible en Biblioteca");
+        Articulos articuloEjemplo = new Articulos("Inteligencia Artificial", "Autor Anonimo", "Tecnologia", "26/09/2005", "Acceso Publico");
+        Libros libroEjemplo = new Libros("Mas alla del sol", "Gabriel Garcia Marquez", "Realismo", "1967", "Disponible en Biblioteca");
         Cursos cursoEjemplo = new Cursos("Desarrollo Web Completo", "John Doe", "8 semanas", "Plataforma Educativa Online");
-        Conferencias conferenciaEjemplo = new Conferencias("Innovacion Tecnologica", "Dr. Maria Lopez", "2022-02-15", 90, "Enlace Privado");
+        Conferencias conferenciaEjemplo = new Conferencias("Innovacion Tecnologica", "Dr. Maria Lopez", "15/02/2022", 90, "Enlace Privado");
 
         listaDeArticulos.add(articuloEjemplo);
         listaDeLibros.add(libroEjemplo);
@@ -106,6 +106,7 @@ public class Lab2p2_MariaSinclair {
                             break;
                         case 5:
                             System.out.println("Finalizo su programa.");
+                            System.out.println("Este lab casi me provoca un derrame cerebral :(");
                             repetir = false;
                             break;
                         default:
@@ -117,6 +118,7 @@ public class Lab2p2_MariaSinclair {
                 System.out.println("Correo o clave incorrectos. Intente nuevamente.");
             }
         } while (!inicioSesionExitoso);
+
     }//Fin del main.
 
     public static void ListarTodos() {
